@@ -24,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core/FhirRag.Core.csproj" />
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core.Abstractions/FhirRag.Core.Abstractions.csproj" />
+    <PackageReference Include="FhirRag.Core" Version="1.0.0" />
+    <PackageReference Include="FhirRag.Core.Abstractions" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
