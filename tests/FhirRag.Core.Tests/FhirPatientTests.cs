@@ -104,11 +104,11 @@ public class FhirConditionTests
         var conditionId = "condition-123";
         var patientId = "patient-456";
         var tenantId = "hospital-b";
-        var code = new LocalCoding.CodeableConcept 
-        { 
-            Coding = new List<LocalCoding.Coding> 
-            { 
-                new() { Code = "I25.10", Display = "Atherosclerotic heart disease", System = "http://snomed.info/sct" } 
+        var code = new LocalCoding.CodeableConcept
+        {
+            Coding = new List<LocalCoding.Coding>
+            {
+                new() { Code = "I25.10", Display = "Atherosclerotic heart disease", System = "http://snomed.info/sct" }
             },
             Text = "Atherosclerotic heart disease"
         };

@@ -105,7 +105,7 @@ public class VectorEmbeddingService : IEmbeddingService
         // Combine text and structured data
         var structuredText = JsonSerializer.Serialize(structuredData, new JsonSerializerOptions { WriteIndented = true });
         var combinedText = $"Text: {text}\n\nStructured Data:\n{structuredText}";
-        
+
         return await GenerateTextEmbeddingAsync(combinedText, cancellationToken);
     }
 
@@ -206,7 +206,7 @@ public class VectorEmbeddingService : IEmbeddingService
                 securityContext.TenantId, resourceType, topK);
 
             // Normalize query embedding if configured
-            var normalizedQuery = _configuration.NormalizeVectors ? 
+            var normalizedQuery = _configuration.NormalizeVectors ?
                 NormalizeVector(queryEmbedding) : queryEmbedding;
 
             // In a real implementation, this would query a vector database (Pinecone, Weaviate, etc.)
@@ -215,7 +215,7 @@ public class VectorEmbeddingService : IEmbeddingService
 
             // This is where you would integrate with your vector database
             // Example: Query Pinecone, Weaviate, or Amazon OpenSearch with vector search
-            
+
             _logger.LogDebug("Found {Count} similar vectors above threshold {Threshold}",
                 results.Count, threshold);
 
@@ -349,7 +349,7 @@ public class VectorEmbeddingService : IEmbeddingService
     private float[] NormalizeVector(float[] vector)
     {
         var magnitude = Math.Sqrt(vector.Sum(x => x * x));
-        
+
         if (magnitude == 0)
             return vector;
 

@@ -71,7 +71,7 @@ public class TelemetryModelsTests
         var step1 = context.StartStep("step1");
         var step2 = context.StartStep("step2");
         var step3 = context.StartStep("step3");
-        
+
         // Complete step2 manually
         step2.Complete(true);
 
@@ -82,7 +82,7 @@ public class TelemetryModelsTests
         step1.Status.Should().Be(TelemetryStepStatus.Completed);
         step2.Status.Should().Be(TelemetryStepStatus.Completed); // Already completed
         step3.Status.Should().Be(TelemetryStepStatus.Completed);
-        
+
         step1.CompletedAt.Should().NotBeNull();
         step3.CompletedAt.Should().NotBeNull();
     }
@@ -125,12 +125,12 @@ public class TelemetryModelsTests
         var context = new TelemetryContext();
         var step1 = context.StartStep("step1");
         var step2 = context.StartStep("step2");
-        
+
         // Simulate time passing
         step1.StartedAt = DateTime.UtcNow.AddMinutes(-5);
         step1.Complete(true);
         step1.CompletedAt = DateTime.UtcNow.AddMinutes(-3);
-        
+
         step2.StartedAt = DateTime.UtcNow.AddMinutes(-2);
         step2.Complete(true);
         step2.CompletedAt = DateTime.UtcNow;
@@ -151,13 +151,13 @@ public class TelemetryModelsTests
             ResourceType = "Patient",
             ResourceId = "patient-123"
         };
-        
+
         var step1 = context.StartStep("step1");
         step1.Complete(true);
-        
+
         var step2 = context.StartStep("step2");
         step2.Complete(false, "Error occurred");
-        
+
         var step3 = context.StartStep("step3");
         step3.Complete(true);
 

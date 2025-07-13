@@ -67,7 +67,7 @@ public static class ServiceCollectionExtensions
             {
                 RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(awsRegion)
             };
-            
+
             return !string.IsNullOrEmpty(accessKeyId) && !string.IsNullOrEmpty(secretAccessKey)
                 ? new AmazonBedrockRuntimeClient(accessKeyId, secretAccessKey, config)
                 : new AmazonBedrockRuntimeClient(config);
@@ -79,7 +79,7 @@ public static class ServiceCollectionExtensions
             {
                 RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(awsRegion)
             };
-            
+
             return !string.IsNullOrEmpty(accessKeyId) && !string.IsNullOrEmpty(secretAccessKey)
                 ? new AmazonLambdaClient(accessKeyId, secretAccessKey, config)
                 : new AmazonLambdaClient(config);
@@ -91,7 +91,7 @@ public static class ServiceCollectionExtensions
             {
                 RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(awsRegion)
             };
-            
+
             return !string.IsNullOrEmpty(accessKeyId) && !string.IsNullOrEmpty(secretAccessKey)
                 ? new AmazonS3Client(accessKeyId, secretAccessKey, config)
                 : new AmazonS3Client(config);
@@ -103,7 +103,7 @@ public static class ServiceCollectionExtensions
             {
                 RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(awsRegion)
             };
-            
+
             return !string.IsNullOrEmpty(accessKeyId) && !string.IsNullOrEmpty(secretAccessKey)
                 ? new AmazonDynamoDBClient(accessKeyId, secretAccessKey, config)
                 : new AmazonDynamoDBClient(config);
@@ -115,7 +115,7 @@ public static class ServiceCollectionExtensions
             {
                 RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(awsRegion)
             };
-            
+
             return !string.IsNullOrEmpty(accessKeyId) && !string.IsNullOrEmpty(secretAccessKey)
                 ? new AmazonSQSClient(accessKeyId, secretAccessKey, config)
                 : new AmazonSQSClient(config);
@@ -135,14 +135,14 @@ public static class ServiceCollectionExtensions
         services.Configure<BedrockLlmConfiguration>(options =>
         {
             configuration.GetSection("Infrastructure:Bedrock").Bind(options);
-            
+
             // Set defaults if not configured
             if (string.IsNullOrEmpty(options.Region))
                 options.Region = configuration.GetValue<string>("AWS:Region") ?? "us-east-1";
-            
+
             if (string.IsNullOrEmpty(options.DefaultModelId))
                 options.DefaultModelId = "anthropic.claude-3-5-sonnet-20241022-v2:0";
-                
+
             if (string.IsNullOrEmpty(options.EmbeddingModelId))
                 options.EmbeddingModelId = "amazon.titan-embed-text-v2:0";
         });
@@ -154,7 +154,7 @@ public static class ServiceCollectionExtensions
         services.Configure<LambdaOrchestrationConfiguration>(options =>
         {
             configuration.GetSection("Infrastructure:Lambda").Bind(options);
-            
+
             if (string.IsNullOrEmpty(options.Region))
                 options.Region = configuration.GetValue<string>("AWS:Region") ?? "us-east-1";
         });
@@ -175,7 +175,7 @@ public static class ServiceCollectionExtensions
         services.Configure<AwsStorageConfiguration>(options =>
         {
             configuration.GetSection("Infrastructure:Storage").Bind(options);
-            
+
             if (string.IsNullOrEmpty(options.Region))
                 options.Region = configuration.GetValue<string>("AWS:Region") ?? "us-east-1";
         });

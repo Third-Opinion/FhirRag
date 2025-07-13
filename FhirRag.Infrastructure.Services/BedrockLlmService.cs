@@ -68,7 +68,7 @@ public class BedrockLlmService : ILlmService
     public async Task<LlmResponse> GenerateResponseAsync(LlmRequest request, CancellationToken cancellationToken = default)
     {
         ValidateRequest(request);
-        
+
         var securityContext = _securityContextProvider.Current;
         if (securityContext == null)
             throw new UnauthorizedAccessException("Security context is required");
@@ -271,7 +271,7 @@ public class BedrockLlmService : ILlmService
         if (modelId.StartsWith("anthropic.claude"))
         {
             var content = responseJson.GetProperty("content")[0].GetProperty("text").GetString() ?? string.Empty;
-            var usage = responseJson.TryGetProperty("usage", out var usageElement) ? 
+            var usage = responseJson.TryGetProperty("usage", out var usageElement) ?
                 new TokenUsage
                 {
                     InputTokens = usageElement.GetProperty("input_tokens").GetInt32(),
@@ -290,7 +290,7 @@ public class BedrockLlmService : ILlmService
         {
             var results = responseJson.GetProperty("results")[0];
             var content = results.GetProperty("outputText").GetString() ?? string.Empty;
-            
+
             return new BedrockResponse
             {
                 Content = content,
@@ -300,7 +300,7 @@ public class BedrockLlmService : ILlmService
         else
         {
             // Generic parsing
-            var content = responseJson.TryGetProperty("text", out var textElement) ? 
+            var content = responseJson.TryGetProperty("text", out var textElement) ?
                 textElement.GetString() ?? string.Empty :
                 responseJson.ToString();
 

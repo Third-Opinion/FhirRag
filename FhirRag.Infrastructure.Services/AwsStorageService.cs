@@ -258,7 +258,7 @@ public class AwsStorageService : IStorageService
             // Query DynamoDB for metadata
             var scanFilter = new ScanFilter();
             scanFilter.AddCondition("TenantId", ScanOperator.Equal, securityContext.TenantId);
-            
+
             if (!string.IsNullOrEmpty(prefix))
             {
                 scanFilter.AddCondition("Key", ScanOperator.BeginsWith, tenantPrefix);
