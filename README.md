@@ -93,7 +93,7 @@ graph TB
 ### Production Configuration
 **Deployment and configuration management**
 
-- **Infrastructure as Code**: CloudFormation and Terraform templates
+- **Infrastructure as Code**: AWS CDK templates managed in [AppInfraCdkV1](https://github.com/Third-Opinion/AppInfraCdkV1)
 - **Environment Configurations**: Development, staging, and production settings
 - **CI/CD Pipelines**: GitHub Actions workflows for automated deployment
 - **Monitoring Setup**: CloudWatch, Application Insights integration
@@ -138,7 +138,7 @@ This solution represents the **complete FHIR RAG platform** that integrates:
 - **.NET 9.0 SDK**
 - **AWS CLI** configured
 - **Docker** (for containerized deployments)
-- **Terraform** or **AWS CDK** (for infrastructure as code)
+- **AWS CDK** (infrastructure managed in [AppInfraCdkV1](https://github.com/Third-Opinion/AppInfraCdkV1))
 
 ### Complete Platform Deployment
 
@@ -148,11 +148,12 @@ This solution represents the **complete FHIR RAG platform** that integrates:
 git clone https://github.com/your-org/fhir-rag.git
 cd fhir-rag/solutions/FhirRag
 
-# Deploy AWS infrastructure
-cd infrastructure/
-terraform init
-terraform plan -var="environment=production"
-terraform apply
+# Deploy AWS infrastructure using CDK
+git clone https://github.com/Third-Opinion/AppInfraCdkV1.git
+cd AppInfraCdkV1
+npm install
+cdk bootstrap
+cdk deploy --context environment=production
 ```
 
 #### 2. Application Deployment
