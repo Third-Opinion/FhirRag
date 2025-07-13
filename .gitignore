@@ -1,0 +1,45 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.cache
+*.dll
+*.pdb
+*.exe
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# Visual Studio
+.vs/
+.vscode/
+*.sln.docstates
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# AWS
+.aws/
+aws-exports.js
+
+# Temporary files
+tmp/
+temp/
