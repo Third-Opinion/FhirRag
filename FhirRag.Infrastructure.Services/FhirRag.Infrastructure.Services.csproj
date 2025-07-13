@@ -33,10 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core/FhirRag.Core.csproj" />
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core.Abstractions/FhirRag.Core.Abstractions.csproj" />
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core.Security/FhirRag.Core.Security.csproj" />
-    <ProjectReference Include="../../FhirRagCore/src/FhirRag.Core.Telemetry/FhirRag.Core.Telemetry.csproj" />
+    <ProjectReference Include="../FhirRagCore/src/FhirRag.Core/FhirRag.Core.csproj" />
+    <ProjectReference Include="../FhirRagCore/src/FhirRag.Core.Abstractions/FhirRag.Core.Abstractions.csproj" />
+    <ProjectReference Include="../FhirRagCore/src/FhirRag.Core.Security/FhirRag.Core.Security.csproj" />
+    <ProjectReference Include="../FhirRagCore/src/FhirRag.Core.Telemetry/FhirRag.Core.Telemetry.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,3 @@
+[submodule "FhirRagCore"]
+	path = FhirRagCore
+	url = https://github.com/Third-Opinion/FhirRagCore.git
